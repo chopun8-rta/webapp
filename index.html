@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Full Screen Iframe</title>
+    <style>
+        /* 1. เคลียร์ Margin/Padding ของตัวบราวเซอร์ และล็อกไม่ให้เกิด Scrollbar ที่ตัวหน้าหลัก */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000000; /* ใส่สีพื้นหลังเผื่อไว้ตอนเว็บใน iframe กำลังโหลด */
+        }
+
+        /* 2. จัดการตัว Iframe ให้ขยายเต็มพื้นที่และไร้ขอบ */
+        .fullscreen-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block; /* ป้องกันช่องว่างด้านล่างที่เป็นพฤติกรรมปกติของ inline elements */
+            
+            /* เทคนิคพิเศษสำหรับ iOS (Safari) เพื่อบังคับให้สเกลตามขนาดหน้าจอได้อย่างถูกต้อง */
+            min-width: 100%;
+            *width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- เปลี่ยน URL ใน src เป็นเว็บที่คุณต้องการได้เลยครับ -->
+    <iframe 
+        src="https://script.google.com/macros/s/AKfycbwpn2USA2lQd8vwz20AwloFhdiEQwYYmn-msj--Ky1eLtvogurPO_lB9NSUltGT9Kvmtg/exec" 
+        class="fullscreen-iframe"
+        allowfullscreen>
+    </iframe>
+
+</body>
+</html>
